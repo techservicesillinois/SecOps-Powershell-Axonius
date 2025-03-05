@@ -9,7 +9,7 @@ This document aims to outline the requirements for the various forms of contribu
 - Update the "Unreleased" section of the [changelog](/CHANGELOG.md) to reflect what was added
 - Use approved Powershell verbs for function names
 - Include Comment Based Help for every function
-- Update the module version number and include the new function in the FunctionsToExport in UofIFeroot.psd1
+- Update the module version number and include the new function in the FunctionsToExport in UofIAxonius.psd1
 - Markdown documentation must be placed in the [module's docs folder](/src/help)
 
 ## Function Enhancements
