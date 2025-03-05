@@ -1,4 +1,4 @@
-# Use environment variable for TDXSettings (explained in README.md)
+# Use environment variable for AxoniusSettings (explained in README.md)
 if ($env:AxoniusSettings) {
     $script:Settings=$env:AxoniusSettings | ConvertFrom-Json
 }

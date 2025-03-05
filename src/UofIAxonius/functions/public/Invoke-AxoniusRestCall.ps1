@@ -2,7 +2,7 @@
 .Synopsis
     Makes a REST method call on the given relative URI for Axonius. Utilizes credentials created with New-AxoniusSession.
 .DESCRIPTION
-    Makes a REST method call on the given relative URI for Feroot. Utilizes credentials created with New-AxoniusSession.
+    Makes a REST method call on the given relative URI for Axonius. Utilizes credentials created with New-AxoniusSession.
 .PARAMETER RelativeURI
     The relativeURI you wish to make a call to. Ex: "assets/devices"
 .PARAMETER Method
