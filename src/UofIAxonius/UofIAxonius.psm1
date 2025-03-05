@@ -4,8 +4,8 @@ if ($env:AxoniusSettings) {
 }
 else {
     Write-Error -Message "No environment variable AxoniusSettings found.
-    Set `$env:AxoniusSettings to a JSON-formatted string containing a BaseURI property, for example:
-    `$env:AxoniusSettings='{ ""BaseURI"": [""https://{axonius-URI}:{port}/api/""] }'"
+    Set `$ENV:AxoniusSettings to a JSON-formatted string containing a BaseURI property, for example:
+    `$ENV:AxoniusSettings='{ ""BaseURI"": [""https://{axonius-URI}:{port}/api/v2/""] }'"
 }
 
 $Script:Session = $NULL
