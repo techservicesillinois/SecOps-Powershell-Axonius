@@ -3,21 +3,40 @@
 
 # What is This?
 
+This Powershell module acts as a wrapper for the Axonius REST API, allowing you to create scripts that run operations tasks in Axonius
+
 # How do I install it?
+
+The latest stable release is always available via the [PSGallery](https://www.powershellgallery.com/packages/UofIAxonius).
+```powershell
+# This will install on the local machine
+Install-Module -Name 'UofIAxonius'
+```
 
 # How does it work?
 
+After installing the module, import the module using:
+```Powershell
+Import-Module -Name 'UofIAxonius'
+```
+For a list of functions:
+```Powershell
+Get-Command -Module 'UofIAxonius'
+```
+Get-Help is available for all functions in this module. For example:
+```Powershell
+Get-Help 'Get-AxoniusQueries' -Full
+```
+
+
 # How do I help?
 
-# To Do
+Submit a pull request on GitHub.
 
-## Data Sources
+# End-of-Life and End-of-Support Dates
 
-|Data Store|Data Type|Sensitivity|Notes|
-|----------|---------|-----------|-----|
+As of the last update to this README, the expected End-of-Life and End-of-Support dates of this product are November 2026.
 
-## Endpoint Connections
+End-of-Life was decided upon based on these dependencies and their End-of-Life dates:
 
-|Endpoint|Purpose|Stage|Access|
-|--------|-------|-----|------|
-
+- Powershell 7.4 (November 2026)
