@@ -55,8 +55,6 @@ function Get-AxoniusAssetByID{
             RelativeURI = $RelativeUri
         }
 
-        $RelativeUri
-
         $Response = Invoke-AxoniusRestCall @RestSplat
         $Response
     }
