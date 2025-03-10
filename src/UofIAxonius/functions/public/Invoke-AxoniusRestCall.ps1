@@ -50,7 +50,6 @@ function Invoke-AxoniusRestCall {
         }
         #Retry parameters only available in Powershell 7.1+, so we use a try/catch to retry calls once to compensate for short periods where the Axonius API is unreachable
         try{
-
             Invoke-RestMethod @IVRSplat
             $Script:APICallCount++
         }
