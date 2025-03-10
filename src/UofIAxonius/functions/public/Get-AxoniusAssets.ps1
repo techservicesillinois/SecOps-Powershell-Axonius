@@ -34,31 +34,29 @@ function Get-AxoniusAssets{
     [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '',
             Justification = 'This is consistent with the vendors verbiage')]
-            param (
-                [Alias('asset_type')]
-                [Parameter(Mandatory=$true)]
-                [string]$AssetType,
-                [Alias('include_metadata')]
-                [bool]$IncludeMetadata = $true,
-                [Alias('saved_query_id')]
-                [string]$SavedQueryID,
-                [Alias('saved_query_name')]
-                [string]$SavedQueryName,
-                [string]$Query,
-                [string]$History,
-                [PSCustomObject]$Page,
-                [string[]]$Fields,
-                [Alias('use_cache_entry')]
-                [bool]$UseCacheEntry = $true,
-                [Alias('include_details')]
-                [bool]$IncludeDetails = $true
-            )
+    param (
+        [Parameter(Mandatory=$true)]
+        [string]$AssetType,
+        [Alias('include_metadata')]
+        [bool]$IncludeMetadata = $true,
+        [Alias('saved_query_id')]
+        [string]$SavedQueryID,
+        [Alias('saved_query_name')]
+        [string]$SavedQueryName,
+        [string]$Query,
+        [string]$History,
+        [PSCustomObject]$Page,
+        [string[]]$Fields,
+        [Alias('use_cache_entry')]
+        [bool]$UseCacheEntry = $true,
+        [Alias('include_details')]
+        [bool]$IncludeDetails = $true
+    )
 
     process{
 
         $RelativeUri = "assets/$($AssetType)"
 
-        # Initialize the body array
         $RestSplat = @{
             Method      = 'POST'
             RelativeURI = $RelativeUri

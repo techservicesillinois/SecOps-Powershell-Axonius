@@ -28,7 +28,6 @@ function New-AxoniusSession{
 
     process{
         if ($PSCmdlet.ShouldProcess("$($Credential)")){
-            # Extract the API key (password) from the PSCredential object
             $Script:Session = $Credential
         }
     }
