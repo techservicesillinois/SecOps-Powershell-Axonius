@@ -10,9 +10,9 @@
 .PARAMETER InternalAxonIDs
     A list of Internal IDs of the assets that tags will be applied to
 .EXAMPLE
-    Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag' -InternalAxonIDs '5f5e4b3c55acdf1150bc38e4','5f5e4b3c55acdf1150bc38e5'
+    Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag' -InternalAxonIDs 'fcc904542e4efa743b693e0c58a7170e','6e966157b2eb7308cc3dc0b9b6b787de'
 .EXAMPLE
-    Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag 1','Test Tag 2' -InternalAxonIDs '5f5e4b3c55acdf1150bc38e4'
+    Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag 1','Test Tag 2' -InternalAxonIDs 'fcc904542e4efa743b693e0c58a7170e'
 #>
 function Add-AxoniusTags{
     [CmdletBinding()]
@@ -36,7 +36,9 @@ function Add-AxoniusTags{
             RelativeURI = $RelativeUri
             Body        = @{
                 tags = $Tags
-                internal_axon_ids = $InternalAxonIDs
+                entities = @{
+                    internal_axon_ids = $InternalAxonIDs
+                }
             }
         }
 
