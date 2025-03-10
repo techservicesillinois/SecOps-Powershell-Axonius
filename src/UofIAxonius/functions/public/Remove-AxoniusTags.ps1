@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-    Add tags to assets.
+    Remove tags from assets.
 .DESCRIPTION
-    Add tags to assets.
+    Remove tags from assets.
 .PARAMETER AssetType
     Retrieve assets for the selected asset type. This is required.
 .PARAMETER Tags
@@ -15,7 +15,7 @@
     Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag 1','Test Tag 2' -InternalAxonIDs 'fcc904542e4efa743b693e0c58a7170e'
 #>
 function Remove-AxoniusTags{
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess)]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '',
             Justification = 'This is consistent with the vendors verbiage')]
     param (
@@ -29,20 +29,23 @@ function Remove-AxoniusTags{
 
     process{
 
-        $RelativeUri = "assets/$($AssetType)/add_tags"
+        if ($PSCmdlet.ShouldProcess("[$($InternalAxonIDs -join ', ')] with tags [$($Tags -join ', ')]", "Remove Tags")) {
 
-        $RestSplat = @{
-            Method      = 'POST'
-            RelativeURI = $RelativeUri
-            Body        = @{
-                tags = $Tags
-                entities = @{
-                    internal_axon_ids = $InternalAxonIDs
+            $RelativeUri = "assets/$($AssetType)/remove_tags"
+
+            $RestSplat = @{
+                Method      = 'POST'
+                RelativeURI = $RelativeUri
+                Body        = @{
+                    tags = $Tags
+                    entities = @{
+                        internal_axon_ids = $InternalAxonIDs
+                    }
                 }
             }
-        }
 
-        $Response = Invoke-AxoniusRestCall @RestSplat
-        $Response
+            $Response = Invoke-AxoniusRestCall @RestSplat
+            $Response
+        }
     }
 }
