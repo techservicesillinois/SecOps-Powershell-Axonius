@@ -14,8 +14,8 @@
 .EXAMPLE
     Add-AxoniusTags -AssetType 'devices' -Tags 'Test Tag 1','Test Tag 2' -InternalAxonIDs 'fcc904542e4efa743b693e0c58a7170e'
 #>
-function Add-AxoniusTags{
-    [CmdletBinding(SupportsShouldProcess)]
+function Remove-AxoniusTags{
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '',
             Justification = 'This is consistent with the vendors verbiage')]
     param (
@@ -29,23 +29,20 @@ function Add-AxoniusTags{
 
     process{
 
-        if ($PSCmdlet.ShouldProcess("[$($InternalAxonIDs -join ', ')] with tags [$($Tags -join ', ')]", "Add Tags")) {
+        $RelativeUri = "assets/$($AssetType)/add_tags"
 
-            $RelativeUri = "assets/$($AssetType)/add_tags"
-
-            $RestSplat = @{
-                Method      = 'POST'
-                RelativeURI = $RelativeUri
-                Body        = @{
-                    tags = $Tags
-                    entities = @{
-                        internal_axon_ids = $InternalAxonIDs
-                    }
+        $RestSplat = @{
+            Method      = 'POST'
+            RelativeURI = $RelativeUri
+            Body        = @{
+                tags = $Tags
+                entities = @{
+                    internal_axon_ids = $InternalAxonIDs
                 }
             }
-
-            $Response = Invoke-AxoniusRestCall @RestSplat
-            $Response
         }
+
+        $Response = Invoke-AxoniusRestCall @RestSplat
+        $Response
     }
 }
