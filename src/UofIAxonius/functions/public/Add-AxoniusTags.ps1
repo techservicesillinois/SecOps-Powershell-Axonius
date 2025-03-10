@@ -29,7 +29,7 @@ function Add-AxoniusTags{
 
     process{
 
-        if ($PSCmdlet.ShouldProcess("[$($InternalAxonIDs -join ', ')] with tags [$($Tags -join ', ')]", "Add Tags")) {
+        if ($PSCmdlet.ShouldProcess("[$($Tags -join ', ')] for [$($InternalAxonIDs.count)] assets", "Add Tags")) {
 
             $RelativeUri = "assets/$($AssetType)/add_tags"
 

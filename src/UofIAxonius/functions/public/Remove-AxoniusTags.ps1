@@ -29,7 +29,7 @@ function Remove-AxoniusTags{
 
     process{
 
-        if ($PSCmdlet.ShouldProcess("[$($InternalAxonIDs -join ', ')] with tags [$($Tags -join ', ')]", "Remove Tags")) {
+        if ($PSCmdlet.ShouldProcess("[$($Tags -join ', ')] for [$($InternalAxonIDs.count)] assets", "Remove Tags")) {
 
             $RelativeUri = "assets/$($AssetType)/remove_tags"
 
