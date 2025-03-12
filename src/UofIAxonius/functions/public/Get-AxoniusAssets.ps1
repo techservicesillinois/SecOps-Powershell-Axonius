@@ -22,7 +22,7 @@
 .PARAMETER UseCacheEntry
     Defaults to true. Uses cached results if they exist. Cache settings reside in Settings -> Data -> Cache and Performance.
 .PARAMETER IncludeDetails
-    Defaults to true. Includes a non-aggregated list of values for each field returned. A new field suffixed with “_details” will contain the non-aggregated list.
+    Defaults to true. Includes a non-aggregated list of values for each field returned. A new field suffixed with "_details: will contain the non-aggregated list.
 .EXAMPLE
     Get-AxoniusAssets -AssetType 'vulnerabilities'
 .EXAMPLE
