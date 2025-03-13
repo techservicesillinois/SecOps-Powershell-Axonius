@@ -10,7 +10,6 @@
     A list of system modules where the queries are used
 .PARAMETER IncludeMetadata
     When true, returns metadata such as item count and paging information (page number, offset, limit). For use when returning large amounts of data
-    Defaults to 'true'.
 .PARAMETER Offset
     The number of rows to skip from the beginning of the result set
 .PARAMETER Limit
