@@ -1,4 +1,4 @@
-# Need the TDXSettings environment variable set to be able to import the module and run the tests
+# Need the AxoniusSettings environment variable set to be able to import the module and run the tests
 BeforeAll{
     $env:AxoniusSettings = '{ "BaseURI": [""] }'
     [String]$ModuleRoot = Join-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -ChildPath 'src\UofIAxonius'
