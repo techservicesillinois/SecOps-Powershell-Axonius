@@ -37,9 +37,9 @@ function Add-AxoniusTags{
                 Method      = 'POST'
                 RelativeURI = $RelativeUri
                 Body        = @{
-                    tags = $Tags
-                    entities = @{
-                        internal_axon_ids = $InternalAxonIDs
+                    'tags' = $Tags
+                    'entities' = @{
+                        'internal_axon_ids' = $InternalAxonIDs
                     }
                 }
             }
