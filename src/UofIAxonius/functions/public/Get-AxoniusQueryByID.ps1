@@ -12,7 +12,6 @@ function Get-AxoniusQueryByID{
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [Alias('query_id')]
         [string]$QueryID
     )
 
