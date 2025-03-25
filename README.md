@@ -40,3 +40,22 @@ As of the last update to this README, the expected End-of-Life and End-of-Suppor
 End-of-Life was decided upon based on these dependencies and their End-of-Life dates:
 
 - Powershell 7.4 (November 2026)
+
+# To Do
+
+- Adapters
+- Dashboards
+- Data Scopes
+- Discovery
+- Encryption
+- Enforcements
+- Enrichments
+- Gateways
+- Roles
+- Tags
+- Users
+- Assets
+  - Get-AxoniusAssetInvestigation
+- Queries
+  - Set-AxoniusQuery
+  - New-AxoniusQuery

@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.0.0] - 2025-03-24
+
+### Added
+
+- Get-AxoniusAssetCount
+- Set-AxoniusCustomField
+- Get-AxoniusAssetInvestigationFields
+- Get-AxoniusQueryFolders
+- Get-AxoniusQueryByID
+- Remove-AxoniusQueryByIDs
+
+### Changed
+
+- Fix example in Remove-AxoniusTags
+- Batchsize parameter added to Remove and Add Tag functions
+- README now includes To Do list
+
 ## [0.0.2] - 2025-03-11
 
 ### Added

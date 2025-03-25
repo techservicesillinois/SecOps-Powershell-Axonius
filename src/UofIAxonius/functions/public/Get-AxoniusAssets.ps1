@@ -16,7 +16,8 @@
 .PARAMETER History
     A historical snapshot date to query against in YYYY-MM-DD format (e.g., 2023-10-15).
 .PARAMETER Page
-    A paging object used to divide the result set into discrete subsets of data.
+    A pscustomobject used to divide the result set into discrete subsets of data. The object should have a limit and/or offset property.
+    Example: $Page = [pscustomobject]@{'limit'=1000;'offset'=0}
 .PARAMETER Fields
     A list of field names in dotted notation to be returned in the response. Example: specific_data.data.name.
 .PARAMETER UseCacheEntry
