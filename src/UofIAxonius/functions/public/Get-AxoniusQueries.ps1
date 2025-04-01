@@ -48,7 +48,7 @@ function Get-AxoniusQueries{
 
         $PSCmdlet.MyInvocation.BoundParameters.GetEnumerator() | ForEach-Object {
             $alias = $MyInvocation.MyCommand.Parameters[$_.Key].Aliases[0]
-            $paramName = $alias ?? $_.Key
+            $paramName = $alias ?? $_.Key.ToLower()
 
             # Handle array parameters by adding multiple entries
             if ($_.Value -is [array]) {
