@@ -42,7 +42,7 @@ function Get-AxoniusAssetByID{
         $PSCmdlet.MyInvocation.BoundParameters.GetEnumerator() | ForEach-Object {
             if($_.Key -notin $ExcludedKeys){
                 $alias = $MyInvocation.MyCommand.Parameters[$_.Key].Aliases[0]
-                $paramName = $alias ?? $_.Key
+                $paramName = $alias ?? $_.Key.ToLower()
                 $QueryObjects += "$($paramName)=$($_.Value)"
             }
         }

@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.0.1] - 2025-04-01
+
+### Changed
+
+- Query params are case-sensitive, discovered query params were not working properly in Get-AxoniusQueries and Get-AxoniusAssetsByID. Added ToLower() functions for these params.
+
+
 ## [1.0.0] - 2025-03-24
 
 ### Added
