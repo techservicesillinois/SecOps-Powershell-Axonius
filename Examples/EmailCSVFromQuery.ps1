@@ -1,4 +1,4 @@
-$Env:axoniusSettings='{ "BaseURI": ["https://university-of-illinois-df61e3eeae2c28c1.on.axonius.com/api/v2/"] }'
+$Env:axoniusSettings='{ "BaseURI": ["https://<myaxoniusURL>.on.axonius.com/api/v2/"] }'
 Import-Module -Name 'UofIAxonius'
 $AxoniusCredential = Import-Clixml -Path '.\Axonius.xml' # See CredentialTips.ps1
 $MailCred = Import-Clixml -Path '.\Mail.xml'
