@@ -4,7 +4,7 @@ $AxoniusCredential = Import-Clixml -Path '.\Axonius.xml' # See CredentialTips.ps
 $MailCred = Import-Clixml -Path '.\Mail.xml'
 New-AxoniusSession -Credential $AxoniusCredential
 
-# Get your query ID from the Axnonius URL when looking at the query on the web UI
+# Get your query ID from the URL when looking at the query in the web UI
 $QueryID = '67ed95bd37a3e1d63dde2d3e'
 
 # Define what fields you want returned about the devices (you get these field names from playing around with Queries in the Axonius UI)
