@@ -15,6 +15,9 @@
 .PARAMETER Limit
     The number of rows to return from the result set
     Defaults to 1000.
+.PARAMETER Query
+    An AQL statement used to select which queries are returned e.g., "(`"name`" == regex(`"installed`", `"i`"))"
+    Reminder that you may need to escape your quotes in powershell with backtick (`)
 .EXAMPLE
     Get-AxoniusQueries
 .EXAMPLE
@@ -26,25 +29,29 @@ function Get-AxoniusQueries{
             Justification = 'This is consistent with the vendors verbiage')]
     param (
         [Alias('folder_id')]
-        [string]$FolderID = 'all',
+        [string]$FolderID,
         [Alias('used_in')]
         [string[]]$UsedIn,
         [Alias('include_metadata')]
         [switch]$IncludeMetadata,
         [int]$Offset,
-        [int]$Limit
+        [int]$Limit,
+        [string]$Query
     )
 
     process{
 
         $QueryObjects = @()
 
-        # Always add folder_id, even if it's the default or explicitly set
-        $QueryObjects += "folder_id=$FolderID"
+        If(-not $FolderID){
+            $QueryObjects += "folder_id=all"
+        }
 
         If(-not $IncludeMetadata){
-            $QueryObjects += "&include_metadata=false"
+            $QueryObjects += "include_metadata=false"
         }
+
+        $Query = [System.Web.HttpUtility]::UrlEncode($Query)
 
         $PSCmdlet.MyInvocation.BoundParameters.GetEnumerator() | ForEach-Object {
             $alias = $MyInvocation.MyCommand.Parameters[$_.Key].Aliases[0]
@@ -57,7 +64,12 @@ function Get-AxoniusQueries{
                 }
             }
             else {
-                $QueryObjects += "$($paramName)=$($_.Value)"
+                if ($_.Key -eq "Query") {
+                    $QueryObjects += "$($paramName)=$($Query)"
+                }
+                else{
+                    $QueryObjects += "$($paramName)=$($_.Value)"
+                }
             }
         }
 
