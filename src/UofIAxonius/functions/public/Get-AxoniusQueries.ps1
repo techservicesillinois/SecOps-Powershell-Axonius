@@ -16,7 +16,8 @@
     The number of rows to return from the result set
     Defaults to 1000.
 .PARAMETER Query
-    An AQL statement used to select which queries are returned (e.g., ("name" == regex("installed", "i")))
+    An AQL statement used to select which queries are returned e.g., "(`"name`" == regex(`"installed`", `"i`"))"
+    Reminder that you may need to escape your quotes in powershell with backtick (`)
 .EXAMPLE
     Get-AxoniusQueries
 .EXAMPLE
