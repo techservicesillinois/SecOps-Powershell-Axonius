@@ -29,7 +29,8 @@ function Add-AxoniusTags{
         [string[]]$Tags,
         [Parameter(Mandatory = $true)]
         [string[]]$InternalAxonIDs,
-        [int]$BatchSize
+        [int]$BatchSize,
+        [bool]$DiscardOutput = $false
     )
 
     process{
@@ -63,8 +64,13 @@ function Add-AxoniusTags{
                 }
 
                 # Make the API call for this batch
-                $Response = Invoke-AxoniusRestCall @RestSplat
-                $Response
+                if ($DiscardOutput) {
+                    [void](Invoke-AxoniusRestCall @RestSplat)
+                }
+                else {
+                    $Response = Invoke-AxoniusRestCall @RestSplat
+                    $Response
+                }
             }
         }
     }
