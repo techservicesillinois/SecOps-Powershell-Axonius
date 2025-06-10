@@ -33,7 +33,10 @@ function Set-AxoniusCustomField{
         #adapters_data.gui.custom_cdb_contact
         if ($PSCmdlet.ShouldProcess("[$($CustomFieldName)] for [$($InternalAxonIDs.count)] assets", "Update Custom Field")) {
 
-            $CustomFieldName = ("adapters_data.gui.custom_$($CustomFieldName)" -replace ' ', '_').ToLower()
+            # Replace dots with _DOT__DOT_, dashes and spaces with underscores, remove other special characters, and lowercase the string
+            $CustomFieldName = ($CustomFieldName -replace '\.', '_DOT__DOT_' -replace '[- ]', '_' -replace '[^\w]', '').ToLower()
+            $CustomFieldName = $CustomFieldName -replace 'dot', 'DOT'
+            $CustomFieldName = "adapters_data.gui.custom_$($CustomFieldName)"
 
             $RelativeUri = "assets/$($AssetType)/update_custom_fields"
 

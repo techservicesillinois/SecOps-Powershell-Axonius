@@ -48,6 +48,8 @@ function Get-AxoniusAssets{
         [string]$History,
         [PSCustomObject]$Page,
         [string[]]$Fields,
+        [Alias('fields_to_exclude')]
+        [string[]]$ExcludedFields,
         [Alias('use_cache_entry')]
         [bool]$UseCacheEntry = $true,
         [Alias('include_details')]

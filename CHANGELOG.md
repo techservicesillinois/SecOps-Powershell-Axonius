@@ -12,6 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.0.3] - 2025-06-09
+
+### Changed
+
+- Get-AxoniusAssets: new ExcludedFields parameter (new in API spec)
+- Set-AxoniusCustomField: reformat special characters in field names
+- Add-AxoniusTags: new DiscardOutput parameter to address memory consumption issues when running in Azure runbook context
+
 ## [1.0.2] - 2025-04-03
 
 ### Added
