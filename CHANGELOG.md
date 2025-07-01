@@ -7,10 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 ### Added
 ### Changed
-
-- Examples directory
-
 ### Removed
+
+## [1.1.0]
+
+### Added
+
+- Get-AxoniusFetchEvents: New Function to Fetch Events in the system
+- Get-AxoniusAdapters: New Function to get details of all adapters in the system
 
 ## [1.0.3] - 2025-06-09
 
