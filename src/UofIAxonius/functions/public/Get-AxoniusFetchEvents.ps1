@@ -9,7 +9,7 @@
     The end of the time range to search to, in "YYYY-MM-DD hh:mm:ss" format. This field is required if using DateFrom.
 .PARAMETER Sort
     A field name to sort the results by. Prefix with "-" for descending and "+" for ascending sort.
-    Example: -last_updated
+    Example: -timestamp
 .PARAMETER Page
     A pscustomobject used to divide the result set into discrete subsets of data. The object should include a limit and/or offset property.
     Example: $Page = [pscustomobject]@{'limit'=100; 'offset'=0}
@@ -20,7 +20,7 @@
     An array of connection IDs to filter the fetch events for specific connections only.
     Example: @('5fdb23a0af123c0012a3e567', '5fdc9ba3cf6723001956d911')
 .EXAMPLE
-    Get-AxoniusFetchEvents -DateFrom "2023-10-15 22:00:00" -DateTo "2023-10-17 21:00:00" -Sort "-last_updated"
+    Get-AxoniusFetchEvents -DateFrom "2023-10-15 22:00:00" -DateTo "2023-10-17 21:00:00" -Sort "-timestamp"
 .EXAMPLE
     Get-AxoniusFetchEvents -DateFrom "2023-10-01 00:00:00" -DateTo "2023-10-02 00:00:00" -Adapters @("aws_adapter") -ConnectionIds @("5fdc9ba3cf6723001956d911")
 #>
@@ -31,9 +31,9 @@ function Get-AxoniusFetchEvents{
             Justification = 'This is consistent with the vendors verbiage')]
 param (
     [Alias('date_from')]
-    [string]$DateFrom,
+    [datetime]$DateFrom,
     [Alias('date_to')]
-    [string]$DateTo,
+    [datetime]$DateTo,
     [string]$Sort,
     [PSCustomObject]$Page,
     [string[]]$Adapters,
@@ -48,6 +48,12 @@ param (
         ElseIf (-not $DateFrom -and $DateTo) {
             Write-Error "If DateTo is set, DateFrom must also be set."
         }
+
+        if ($DateFrom) {
+            $DateFrom = $DateFrom.ToString("yyyy-MM-dd HH:mm:ss")
+            $DateTo = $DateTo.ToString("yyyy-MM-dd HH:mm:ss")
+        }
+
 
         $RelativeUri = "adapters/fetch_events"
 
