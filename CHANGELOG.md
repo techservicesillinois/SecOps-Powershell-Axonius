@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
+## [1.1.1]
+
+### Added
+
+- Get-AxoniusFetchHistory: New Function to Get fetch history details.
+
 ## [1.1.0]
 
 ### Added
