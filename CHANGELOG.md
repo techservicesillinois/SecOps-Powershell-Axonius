@@ -9,11 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 ### Removed
 
-## [1.1.1]
-
-### Added
-
-- Get-AxoniusFetchHistory: New Function to Get fetch history details.
 
 ## [1.1.0]
 
@@ -21,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Get-AxoniusFetchEvents: New Function to Fetch Events in the system
 - Get-AxoniusAdapters: New Function to get details of all adapters in the system
+- Get-AxoniusFetchHistory: New Function to Get fetch history details.
 
 ## [1.0.3] - 2025-06-09
 
